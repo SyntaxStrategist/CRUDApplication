@@ -1,0 +1,130 @@
+/* index.css */
+
+/* Global Styles */
+body {
+  font-family: 'Roboto', sans-serif; /* Modern font for overall app */
+  background: linear-gradient(135deg, #e2e8f0, #edf2f7); /* Softer gradient background */
+  color: #374151; /* Dark gray text color */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center items horizontally */
+  justify-content: flex-start; /* Align items to the top */
+  height: 100vh; /* Full viewport height */
+  overflow-y: auto; /* Allow vertical scrolling if needed */
+}
+
+/* Headings */
+h1 {
+  color: #1f2937; /* Darker shade for main title */
+  margin-bottom: 30px; /* Space below the title */
+  text-align: center; /* Center the title */
+  font-size: 2.5rem; /* Increase title font size */
+}
+
+h2 {
+  color: #059669; /* Emerald color for subheadings */
+  margin-bottom: 20px; /* Space below subheadings */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Subtle text shadow */
+  text-align: center; /* Center the subheadings */
+}
+
+/* Main App Container */
+.App {
+  width: 90%;
+  max-width: 800px; /* Set a max-width for the app */
+  padding: 20px; /* Add some padding */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Add shadow for better separation */
+  background-color: white; /* White background for the main container */
+  border-radius: 10px; /* Rounded corners */
+}
+
+/* Form Styles */
+form {
+  background: #ffffff; /* White background for forms */
+  padding: 30px; /* Increased padding for spacious feel */
+  border-radius: 12px; /* More rounded corners for a softer look */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); /* Pronounced shadow for depth */
+  margin-bottom: 20px; /* Space below forms */
+}
+
+/* Input Styles */
+input[type="text"],
+input[type="number"] {
+  width: 100%; /* Full width inputs */
+  padding: 10px; /* Padding inside inputs */
+  margin-bottom: 15px; /* Space below inputs */
+  border: 1px solid #d1d5db; /* Light border */
+  border-radius: 5px; /* Rounded corners */
+  transition: border-color 0.3s; /* Smooth transition for border color */
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+  border-color: #059669; /* Change border color on focus */
+  outline: none; /* Remove default outline */
+}
+
+/* Button Styles */
+button {
+  background-color: #059669; /* Emerald button color */
+  color: #ffffff; /* White text on buttons */
+  padding: 12px 20px; /* Padding for buttons */
+  border: none; /* No border */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  font-weight: bold; /* Bold text */
+  transition: background-color 0.3s, transform 0.3s; /* Smooth transition */
+  width: 100%; /* Full width button */
+  font-size: 1rem; /* Button font size */
+}
+
+button:hover {
+  background-color: #047857; /* Darker emerald on hover */
+  transform: translateY(-2px); /* Lift effect */
+}
+
+/* List Styles */
+ul {
+  list-style-type: none; /* Remove bullet points from list */
+  padding: 0; /* Remove padding */
+  margin: 20px 0; /* Margin above and below the list */
+  width: 100%; /* Full width */
+  max-width: 400px; /* Limit width on larger screens */
+}
+
+li {
+  padding: 15px; /* Padding for list items */
+  background: #ffffff; /* White background for list items */
+  margin-bottom: 15px; /* Space between items */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  transition: transform 0.3s; /* Transition for hover effect */
+}
+
+li:hover {
+  transform: translateY(-2px); /* Lift effect on hover */
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 600px) {
+  form {
+    width: 95%; /* Slightly wider on smaller screens */
+  }
+
+  button {
+    font-size: 16px; /* Adjust font size for smaller screens */
+  }
+
+  li {
+    font-size: 16px; /* Adjust font size for list items */
+  }
+}
+
+/* Message Styles */
+p {
+  color: green; /* or red for error messages */
+  font-weight: bold;
+  text-align: center; /* Center messages */
+}
