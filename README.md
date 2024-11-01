@@ -1,5 +1,3 @@
-Here's the updated and fixed README for your CRUD application. I've added more detail to the installation instructions and cleaned up the formatting for clarity. You can copy and paste this into your README.md file.
-
 ```markdown
 # CRUD Application
 
@@ -94,4 +92,3 @@ Contributions are welcome! If you have suggestions for improvements or new featu
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 ```
 
-Feel free to adjust any content or instructions to better fit your project!
