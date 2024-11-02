@@ -5,6 +5,7 @@ function CreateItem({ onItemCreated }) {
   const [description, setDescription] = useState('');
   const [price, setPrice] = useState('');
   const [successMessage, setSuccessMessage] = useState(''); // State for success message
+  const [errorMessage, setErrorMessage] = useState(''); // State for error message
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -27,6 +28,7 @@ function CreateItem({ onItemCreated }) {
         setDescription('');
         setPrice('');
         setSuccessMessage('Item created successfully!'); // Set success message
+        setErrorMessage(''); // Clear any previous error messages
         onItemCreated(); // Notify parent to refetch items
 
         // Clear the success message after 3 seconds
@@ -34,10 +36,13 @@ function CreateItem({ onItemCreated }) {
           setSuccessMessage('');
         }, 3000);
       } else {
-        console.error('Failed to create item:', response.statusText);
+        const errorData = await response.json();
+        console.error('Failed to create item:', errorData.message);
+        setErrorMessage(errorData.message || 'Failed to create item');
       }
     } catch (error) {
       console.error('Error during fetch:', error);
+      setErrorMessage('Error during fetch: ' + error.message);
     }
   };
 
@@ -45,6 +50,7 @@ function CreateItem({ onItemCreated }) {
     <div>
       <h2>Create Item</h2>
       {successMessage && <p style={{ color: 'green' }}>{successMessage}</p>} {/* Display success message */}
+      {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>} {/* Display error message */}
       <form onSubmit={handleSubmit}>
         <label>
           Name:
