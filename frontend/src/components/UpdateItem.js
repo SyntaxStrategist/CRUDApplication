@@ -17,7 +17,7 @@ function UpdateItem({ items, onUpdate }) {
   const handleUpdate = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`http://localhost:5001/api/items/${selectedItemId}`, {
+      const response = await fetch(`https://crudapplication-y75j.onrender.com/api/items/${selectedItemId}`, { // Update URL to your deployed backend
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -89,3 +89,4 @@ function UpdateItem({ items, onUpdate }) {
 }
 
 export default UpdateItem;
+
