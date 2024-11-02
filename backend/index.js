@@ -18,6 +18,11 @@ const itemRoutes = require('./routes/items'); // Ensure this path is correct
 // Use item routes
 app.use('/api/items', itemRoutes); // This line ensures the routes work
 
+// Add a root route
+app.get('/', (req, res) => {
+  res.send('Welcome to the API!'); // Respond with a simple message
+});
+
 // MongoDB connection
 mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
