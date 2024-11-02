@@ -18,8 +18,13 @@ const itemRoutes = require('./routes/items'); // Ensure this path is correct
 // Use item routes
 app.use('/api/items', itemRoutes); // This line ensures the routes work
 
+// Add a root route
+app.get('/', (req, res) => {
+  res.send('Welcome to the API!'); // Respond with a simple message
+});
+
 // MongoDB connection
-mongoose.connect('mongodb+srv://iammikeoni879:CoVaVqdiw6aPAVke@cluster0.esrix.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0', {
+mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
@@ -64,3 +69,4 @@ app.delete('/api/items/:id', async (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`); // Corrected line
 });
+

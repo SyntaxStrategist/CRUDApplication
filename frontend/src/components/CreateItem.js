@@ -14,7 +14,7 @@ function CreateItem({ onItemCreated }) {
     console.log('Form submitted:', newItem);
 
     try {
-      const response = await fetch('http://localhost:5001/api/items', {
+      const response = await fetch('https://crudapplication-y75j.onrender.com/api/items', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -74,3 +74,4 @@ function CreateItem({ onItemCreated }) {
 }
 
 export default CreateItem;
+
