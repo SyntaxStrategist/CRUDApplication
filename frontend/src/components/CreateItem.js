@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function CreateItem({ onItemCreated }) {
+function CreateItem({ onItemCreated, fetchItems }) {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [price, setPrice] = useState('');
@@ -29,7 +29,9 @@ function CreateItem({ onItemCreated }) {
         setPrice('');
         setSuccessMessage('Item created successfully!'); // Set success message
         setErrorMessage(''); // Clear any previous error messages
-        onItemCreated(); // Notify parent to refetch items
+        
+        // Fetch items again to include the newly created item
+        fetchItems(); // Call fetchItems to refresh the item list
 
         // Clear the success message after 3 seconds
         setTimeout(() => {
@@ -74,4 +76,3 @@ function CreateItem({ onItemCreated }) {
 }
 
 export default CreateItem;
-

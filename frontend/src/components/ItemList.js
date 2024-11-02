@@ -1,25 +1,9 @@
 import React, { useEffect, useState } from 'react';
 
-function ItemList() {
-  const [items, setItems] = useState([]);
-
+function ItemList({ items, onDelete }) { // Accept items as a prop
   // Fetch items when the component mounts
   useEffect(() => {
-    const fetchItems = async () => {
-      try {
-        const response = await fetch('https://crudapplication-y75j.onrender.com/api/items'); // Update the URL to your deployed backend
-        if (response.ok) {
-          const data = await response.json();
-          setItems(data);
-        } else {
-          console.error('Failed to fetch items:', response.statusText);
-        }
-      } catch (error) {
-        console.error('Error fetching items:', error);
-      }
-    };
-
-    fetchItems();
+    // No need to fetch items here since they are passed as props
   }, []); // Empty dependency array means this runs once on mount
 
   // Function to handle item deletion with confirmation
@@ -29,13 +13,15 @@ function ItemList() {
     if (!confirmDelete) return; // Exit if the user cancels
 
     try {
-      const response = await fetch(`https://crudapplication-y75j.onrender.com/api/items/${id}`, { // Update the URL to your deployed backend
+      const response = await fetch(`https://crudapplication-y75j.onrender.com/api/items/${id}`, {
         method: 'DELETE',
       });
 
       if (response.ok) {
-        setItems(items.filter(item => item._id !== id)); // Update state to remove deleted item
         console.log('Item deleted successfully');
+        if (onDelete) {
+          onDelete(id); // Notify parent with the id of the deleted item
+        }
       } else {
         console.error('Failed to delete item:', response.statusText);
       }
