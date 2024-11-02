@@ -19,7 +19,7 @@ const itemRoutes = require('./routes/items'); // Ensure this path is correct
 app.use('/api/items', itemRoutes); // This line ensures the routes work
 
 // MongoDB connection
-mongoose.connect(process.env.MONGODB_URI, {
+mongoose.connect('mongodb+srv://iammikeoni879:BtMHO4AT1dkHvkZI@cluster0.esrix.mongodb.net/?retryWrites=true&w=majority', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
