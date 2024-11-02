@@ -9,7 +9,7 @@ function App() {
 
   // Fetch items from the backend
   const fetchItems = async () => {
-    const response = await fetch('http://localhost:5001/api/items');
+    const response = await fetch('https://crudapplication-y75j.onrender.com/api/items'); // Updated URL
     if (response.ok) {
       const data = await response.json();
       setItems(data);
