@@ -7,7 +7,7 @@ function ItemList() {
   useEffect(() => {
     const fetchItems = async () => {
       try {
-        const response = await fetch('http://localhost:5001/api/items');
+        const response = await fetch('https://crudapplication-y75j.onrender.com/api/items'); // Update the URL to your deployed backend
         if (response.ok) {
           const data = await response.json();
           setItems(data);
@@ -29,7 +29,7 @@ function ItemList() {
     if (!confirmDelete) return; // Exit if the user cancels
 
     try {
-      const response = await fetch(`http://localhost:5001/api/items/${id}`, {
+      const response = await fetch(`https://crudapplication-y75j.onrender.com/api/items/${id}`, { // Update the URL to your deployed backend
         method: 'DELETE',
       });
 
