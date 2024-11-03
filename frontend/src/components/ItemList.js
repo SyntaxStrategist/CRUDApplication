@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 
 function ItemList({ items, onDelete }) { // Accept items as a prop
-  // Fetch items when the component mounts
+  const [loading, setLoading] = useState(true); // Add loading state
+
+  // Set loading to false once items are passed as props
   useEffect(() => {
-    // No need to fetch items here since they are passed as props
-  }, []); // Empty dependency array means this runs once on mount
+    setLoading(false); // No need to fetch items here since they are passed as props
+  }, [items]); // Update loading state when items change
 
   // Function to handle item deletion with confirmation
   const handleDelete = async (id) => {
@@ -33,7 +35,9 @@ function ItemList({ items, onDelete }) { // Accept items as a prop
   return (
     <div>
       <h2>Item List</h2>
-      {items.length === 0 ? (
+      {loading ? ( // Show loading message while items are being fetched
+        <p>Loading...</p>
+      ) : items.length === 0 ? (
         <p>No items available.</p>
       ) : (
         <ul>
